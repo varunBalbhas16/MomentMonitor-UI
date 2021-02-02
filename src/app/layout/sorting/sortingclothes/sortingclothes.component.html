@@ -1,0 +1,203 @@
+<mat-card>
+  <div>
+  <mat-card-title>SORTING CLOTHES</mat-card-title>
+    <mat-card-subtitle>
+      <!--
+<mat-button-toggle-group multiple (change)="toggleChange($event)">
+    <mat-button-toggle value="ONLINE" checked>ONLINE</mat-button-toggle>
+    <mat-button-toggle value="OFFLINE">OFFLINE</mat-button-toggle>
+</mat-button-toggle-group>
+-->
+
+      <mat-label> Bag Weight : {{bagWeight}} Kgs.</mat-label>
+</mat-card-subtitle>
+
+  <mat-card-content>
+        <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">
+          <mat-button-toggle (click)="getWeight()">Get Weight</mat-button-toggle>
+
+  <mat-form-field class="example-container">
+		<input matInput placeholder="Weight" formControlName="Weight" type="number" id="weight"  step="0.001" [(ngModel)]="weightvalue.description" name="description" required>
+    <mat-error *ngFor="let validation of validation_messages.Weight">
+     <mat-error class="error-message" *ngIf="regiForm.get('Weight').hasError(validation.type) && (regiForm.get('Weight').dirty || regiForm.get('Weight').touched)">{{validation.message}}</mat-error>
+    </mat-error>
+
+	</mat-form-field>
+   <mat-form-field class="example-container">
+    <input matInput placeholder="Number Of Items" formControlName="items" type="number"  min="0" [value]="items" required>
+     <mat-error *ngFor="let validation of validation_messages.items">
+    <mat-error class="error-message" *ngIf="regiForm.get('items').hasError(validation.type) && (regiForm.get('items').dirty || regiForm.get('items').touched)">{{validation.message}}</mat-error>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-card-title class="collection"></mat-card-title>
+    <div class="mb-20" fxFlex fxLayout="row"  fxLayoutGap="20px" class="cursor">
+    <div fxFlex>
+        <mat-card fxFlex fxLayoutAlign="center center"  >
+          <div   class="example-header-image1" id="example-header-image1" (click)="image($event)" value="1 - Kids 0-24 Months" >1 - Kids 0-24 Months</div>
+        </mat-card>
+    </div>
+     <div fxFlex>
+        <mat-card fxFlex fxLayoutAlign="center center">
+        <div   class="example-header-image2 " id="example-header-image2" (click)="image($event)" value="2 - Kids Jeans & Long Pants">2 - Kids Jeans & Long Pants</div>
+        </mat-card>
+    </div>
+     <div fxFlex>
+        <mat-card fxFlex fxLayoutAlign="center center">
+        <div  class="example-header-image3" id="example-header-image3" (click)="image($event)" value="3 - Kids Shorts & Swim Wear">3 - Kids Shorts & Swim Wear</div>
+        </mat-card>
+    </div>
+     <div fxFlex>
+        <mat-card fxFlexFill fxLayoutAlign="center center">
+        <div  class="example-header-image4" id="example-header-image4" (click)="image($event)" value="4 - Kids Long Sleeve">4 - Kids Long Sleeve</div>
+        </mat-card>
+    </div>
+     <div fxFlex>
+        <mat-card fxFlexFill fxLayoutAlign="center center">
+        <div  class="example-header-image5" id="example-header-image5" (click)="image($event)" value="5 - Kids Jerseys">5 - Kids Jerseys</div>
+        </mat-card>
+    </div>
+     <div fxFlex>
+        <mat-card fxFlexFill fxLayoutAlign="center center">
+        <div  class="example-header-image6" id="example-header-image6" (click)="image($event)" value="6 - Kids Skirts & Dresses">6 - Kids Skirts & Dresses</div>
+        </mat-card>
+    </div>
+</div>
+<mat-card-title class="collection"></mat-card-title>
+<div class="mb-20" fxFlex fxLayout="row"  fxLayoutGap="20px" class="cursor">
+    <div fxFlex>
+        <mat-card fxFlexFill fxLayoutAlign="center center">
+        <div  class="example-header-image11" id="example-header-image11" (click)="image($event)" value="7 - Kids Short Sleeve & T Shirts">7 - Kids Short Sleeve & T Shirts</div>
+        </mat-card>
+    </div>
+     <div fxFlex>
+        <mat-card fxFlexFill fxLayoutAlign="center center">
+        <div  class="example-header-image12" id="example-header-image12" (click)="image($event)" value="8 - Ladies Dresses & Skirts">8 - Ladies Dresses & Skirts</div>
+        </mat-card>
+    </div>
+     <div fxFlex>
+        <mat-card fxFlexFill fxLayoutAlign="center center">
+        <div  class="example-header-image13" id="example-header-image13" (click)="image($event)" value="9 - Ladies Long Pants, Jeans & Shorts">9 - Ladies Long Pants, Jeans & Shorts</div>
+        </mat-card>
+    </div>
+     <div fxFlex>
+        <mat-card fxFlexFill fxLayoutAlign="center center">
+        <div  class="example-header-image14" id="example-header-image14" (click)="image($event)" value="10 - Ladies Long Sleeves">10 - Ladies Long Sleeves </div>
+        </mat-card>
+    </div>
+     <div fxFlex>
+        <mat-card fxFlexFill fxLayoutAlign="center center">
+        <div  class="example-header-image15" id="example-header-image15" (click)="image($event)" value="11 - Ladies Short Sleeves">11 - Ladies Short Sleeves </div>
+        </mat-card>
+    </div>
+     <div fxFlex>
+        <mat-card fxFlexFill fxLayoutAlign="center center">
+        <div  class="example-header-image16" id="example-header-image16" (click)="image($event)" value="12 - Ladies Jersey">12 - Ladies Jersey</div>
+        </mat-card>
+    </div>
+</div>
+<mat-card-title class="collection"></mat-card-title>
+<div class="mb-20" fxFlex fxLayout="row"  fxLayoutGap="20px" class="cursor">
+    <div fxFlex>
+        <mat-card fxFlexFill fxLayoutAlign="center center">
+        <div  class="example-header-image21" id="example-header-image21" (click)="image($event)" value="13 - Mens">13 - Mens</div>
+        </mat-card>
+    </div>
+     <div fxFlex>
+        <mat-card fxFlexFill fxLayoutAlign="center center">
+        <div  class="example-header-image22" id="example-header-image22" (click)="image($event)" value="14 - Big Size">14 - Big Size</div>
+        </mat-card>
+    </div>
+     <div fxFlex>
+        <mat-card fxFlexFill fxLayoutAlign="center center">
+        <div  class="example-header-image23" id="example-header-image23" (click)="image($event)" value="15 - A-Grade">15 - A-Grade</div>
+        </mat-card>
+    </div>
+     <div fxFlex>
+        <mat-card fxFlexFill fxLayoutAlign="center center">
+        <div  class="example-header-image24" id="example-header-image24" (click)="image($event)" value="16 - B-Grade">16 - B-Grade</div>
+        </mat-card>
+    </div>
+     <div fxFlex>
+        <mat-card fxFlexFill fxLayoutAlign="center center">
+        <div  class="example-header-image25" id="example-header-image25" (click)="image($event)" value="17 - Wash">17 - Wash</div>
+        </mat-card>
+    </div>
+     <div fxFlex>
+        <mat-card fxFlexFill fxLayoutAlign="center center">
+        <div  class="example-header-image26" id="example-header-image26" (click)="image($event)" value="18 - Repair">18 -Repair</div>
+        </mat-card>
+    </div>
+</div>
+<mat-card-title class="collection"></mat-card-title>
+<div class="mb-20" fxFlex fxLayout="row"  fxLayoutGap="20px" class="cursor">
+    <div fxFlex>
+        <mat-card fxFlexFill fxLayoutAlign="center center">
+        <div  class="example-header-image31" id="example-header-image31" (click)="image($event)" value="19 - Shoes">19 - Shoes</div>
+        </mat-card>
+    </div>
+    <div fxFlex>
+      <mat-card fxFlexFill fxLayoutAlign="center center">
+        <div  class="example-header-image31" id="example-header-image31" (click)="image($event)" value="20 - Unusable">20 - Unusable</div>
+        </mat-card>
+    </div>
+    <div fxFlex> </div>
+    <div fxFlex></div>
+    <div fxFlex></div>
+    <div fxFlex></div>
+</div>
+<mat-card-footer>
+   <button mat-raised-button color="accent" (click)="undo()" type="button" [disabled]="!showUndo">Undo</button>
+</mat-card-footer>
+<mat-card class="tableshow">
+   <table class="imageshow">
+  <tr>
+    <th>Category</th>
+    <th>Weight</th>
+    <th>Items</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let Weight of WeightArray; let i = index">
+     <!-- <td><img [src]="Weight.image" class="image" /></td> -->
+     <td>{{Weight.category}}</td>
+    <td>{{Weight.weight}}</td>
+     <td>{{Weight.item}}</td>
+    <td><mat-icon class="delete" matTooltip="delete" (click)="Removerow(i)">delete</mat-icon>
+    </td>
+  </tr>
+  <td>Total weight</td>
+  <td>{{totalweight}}</td>
+  </table>
+</mat-card>
+   <mat-card-footer>
+  	<!--<button mat-raised-button color="accent"  [disabled]="!regiForm.valid" >Submit</button> -->
+     <button mat-raised-button color="accent" >Submit</button>
+   </mat-card-footer>
+</form>
+</mat-card-content>
+   </div>
+</mat-card>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

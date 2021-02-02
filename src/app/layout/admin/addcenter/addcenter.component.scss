@@ -1,0 +1,33 @@
+mat-form-field
+{
+  width:100%;
+}
+.form{
+  top: 5px;
+}
+button.mat-raised-button.mat-accent
+{
+  font-family:Roboto,"Helvetica Neue",sans-serif;
+  color:#0a0606e8!important;
+  margin-left: 8px;
+  margin: 15px !important;
+}
+mat-card-title
+{
+color:#224f88;
+  /*color: #fe6d62;*/
+}
+.mat-button-toggle-group-appearance-standard, .mat-button-toggle-standalone.mat-button-toggle-appearance-standard {
+    border-radius: 8px;
+    /*padding: 8px;*/
+}
+.mat-button-toggle-group-appearance-standard, .mat-button-toggle-standalone.mat-button-toggle-appearance-standard {
+    border: solid 2px #CDDC39;
+}
+.mat-button-toggle-checked {
+    background-color: #CDDC39;
+    color: rgba(0,0,0,.54);
+}
+agm-map{
+  height:500px;
+}

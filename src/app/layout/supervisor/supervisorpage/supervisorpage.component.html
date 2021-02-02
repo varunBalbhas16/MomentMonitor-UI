@@ -1,0 +1,47 @@
+<mat-card>
+  <div class="example-container">
+  <mat-card-title>START A BATCH</mat-card-title>
+  <mat-card-content>
+        <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm)">
+                       <mat-form-field>
+                            <input formControlName="batchNumber" matInput placeholder="Batch Number" (change)="barcode(regiForm.value.batchNumber)">
+                        </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!regiForm.get('batchNumber').valid && regiForm.get('batchNumber').touched">Please enter the Batch Number.</span>
+                        </mat-error>
+                        <mat-form-field>
+                            <input formControlName="programName" name="programName" matInput placeholder="Program Name" [(ngModel)]="getallbarcode.programName">
+                         </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!regiForm.get('programName').valid && regiForm.get('programName').touched">Please enter the Program Name.</span>
+                        </mat-error>
+                        <mat-form-field>
+                            <input formControlName="name" matInput placeholder="Contributor Name"[(ngModel)]="getallbarcode.name" name="name">
+                        </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!regiForm.get('name').valid && regiForm.get('name').touched">Please enter the Contributor Name.</span>
+                        </mat-error>
+                         <mat-form-field>
+                            <input formControlName="numberOfBags" matInput type="number" placeholder="Total number of bags" [(ngModel)]="getallbarcode.noOfBags" name="noOfBags">
+                        </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!regiForm.get('numberOfBags').valid && regiForm.get('numberOfBags').touched">Please enter the Total number of bags recieved.</span>
+                        </mat-error>
+                        <mat-form-field>
+                            <input formControlName="totalWeight" matInput type="number" placeholder="Total Weight in Kgs." [(ngModel)]="getallbarcode.collectionTotalWeight" name="collectionTotalWeight">
+                        </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!regiForm.get('totalWeight').valid && regiForm.get('totalWeight').touched">Please enter Total weight of all the bags.</span>
+                        </mat-error>
+                        <mat-card-footer>
+                        <button mat-raised-button color="accent" [disabled]="!regiForm.valid">Start Sorting</button>
+                          <button mat-button class="add"  [routerLink]="['/supervisor/supervisorlist']" matTooltip="back">Cancel</button>
+                        </mat-card-footer>
+
+        </form>
+    </mat-card-content>
+   </div>
+</mat-card>
+
+
+

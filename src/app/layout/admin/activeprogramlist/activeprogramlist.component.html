@@ -1,0 +1,59 @@
+<mat-card-title>ACTIVE PROGRAM MAPPING LIST</mat-card-title>
+<mat-card>
+<div class="example">
+  <table mat-table [dataSource]="dataSource" matSort>
+    <!-- <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef>DATE</th>
+      <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+    </ng-container> -->
+    <ng-container matColumnDef="programname">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>PROGRAM</th>
+      <td mat-cell *matCellDef="let element"> {{element.programName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="contributorName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>CONTRIBUTOR</th>
+      <td mat-cell *matCellDef="let element"> {{element.contributorName}} </td>
+    </ng-container>
+      <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>TYPE</th>
+      <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+    </ng-container>
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>STATUS</th>
+      <td mat-cell *matCellDef="let element"> {{element.statusName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="totalWeight">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>TOTAL<br>WEIGHT</th>
+      <td mat-cell *matCellDef="let element"> {{element.totalWeight}} </td>
+    </ng-container>
+     <ng-container matColumnDef="totalRecyclable">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>TOTAL<br>RECYCLE</th>
+      <td mat-cell *matCellDef="let element"> {{element.totalRecyclable}} </td>
+    </ng-container>
+    <ng-container matColumnDef="totalWaste">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>TOTAL<br> UNUSABLE</th>
+      <td mat-cell *matCellDef="let element"> {{element.totalWaste}} </td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ACTION</th>
+      <td mat-cell *matCellDef="let element">
+        <mat-icon class="print1">print</mat-icon>
+      <!--  <mat-icon class="edit">edit</mat-icon>
+       <mat-icon class="delete">delete</mat-icon> -->
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+ <ng-template #tpl let-element>
+  <div class="mat-row detail-row" [@detailExpand] style="overflow: hidden">
+
+    <!-- <strong>Email :</strong>{{element.email}} -->
+  </div>
+</ng-template>
+</mat-card>
+
+
+

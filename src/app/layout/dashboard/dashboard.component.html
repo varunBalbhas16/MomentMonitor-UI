@@ -1,0 +1,10 @@
+<app-admindashboard *ngIf="currentUser.roleName == 'Admin'"></app-admindashboard>
+<app-retailerdashboard *ngIf="currentUser.roleName == 'Retailer Admin'"></app-retailerdashboard>
+<app-schooladmindashboard *ngIf="currentUser.roleName == 'School Admin'"></app-schooladmindashboard>
+
+<!--
+<app-schooladminhistory *ngIf="currentUser.roleName == 'School Admin'"></app-schooladminhistory> -->
+<app-systemdetails  *ngIf="currentUser.roleName == 'Sorting Agent'"></app-systemdetails>
+<app-collection  *ngIf="currentUser.roleName == 'Collector'"></app-collection>
+<app-supervisorlist  *ngIf="currentUser.roleName == 'Sorting Supervisor'"></app-supervisorlist>
+

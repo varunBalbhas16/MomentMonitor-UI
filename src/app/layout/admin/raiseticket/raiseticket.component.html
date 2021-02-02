@@ -1,0 +1,142 @@
+<mat-card-title>RAISE TICKET</mat-card-title>
+<mat-card class="form">
+  <div class="example-container">
+    <mat-card-content>
+      <form [formGroup]="regiForm" (ngSubmit)="addTicketFormSubmit(regiForm.value)">
+
+        <mat-form-field>
+          <input formControlName="centre" matInput placeholder="Center" [matAutocomplete]="auto" name="ocentre">
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayCentres" >
+            <mat-option *ngFor="let ocenter of ocenters" [value]="ocenter">
+              {{ocenter.centreName}}
+            </mat-option>
+          </mat-autocomplete>
+          <!--  -->
+          <mat-error *ngFor="let validation of account_validation_messages.centre">
+            <mat-error class="error-message"
+                       *ngIf="regiForm.get('centre').hasError(validation.type) && (regiForm.get('centre').dirty || regiForm.get('centre').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field>
+          <input formControlName="department" matInput placeholder="Department" [matAutocomplete]="autoDepts" name="odepartment">
+          <mat-autocomplete #autoDepts="matAutocomplete" [displayWith]="displayDepartments" >
+            <mat-option *ngFor="let odepartment of odepartments" [value]="odepartment">
+              {{odepartment.departmentName}}
+            </mat-option>
+          </mat-autocomplete>
+                    <mat-error *ngFor="let validation of account_validation_messages.department">
+            <mat-error class="error-message"
+                       *ngIf="regiForm.get('department').hasError(validation.type) && (regiForm.get('department').dirty || regiForm.get('department').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="coordinator" matInput placeholder="Co-ordinator" readonly [(ngModel)]="centreDeptData.departmentHeadName" name="coordinator">
+        </mat-form-field>
+
+
+        <!--                      <mat-form-field>
+                                    <input formControlName="email" matInput placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                                       <mat-error *ngFor="let validation of account_validation_messages.email">
+                                         <mat-error class="error-message" *ngIf="regiForm.get('email').hasError(validation.type) && (regiForm.get('email').dirty || regiForm.get('email').touched)">{{validation.message}}</mat-error>
+                                     </mat-error>
+                                </mat-form-field>
+                                -->
+        <mat-form-field>
+          <input formControlName="contact" type="number" matInput placeholder="Contact Number" readonly [(ngModel)]="centreDeptData.departmentHeadContact">
+          <!--<mat-error *ngFor="let validation of account_validation_messages.contact">
+            <mat-error class="error-message"
+                       *ngIf="regiForm.get('contact').hasError(validation.type) && (regiForm.get('contact').dirty || regiForm.get('contact').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="description" matInput placeholder="Ticket Description">
+          <!--
+          <mat-error *ngFor="let validation of account_validation_messages.description">
+            <mat-error class="error-message"
+                       *ngIf="regiForm.get('description').hasError(validation.type) && (regiForm.get('description').dirty || regiForm.get('description').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+          -->
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="description" matInput placeholder="Ticket Description">
+          <!--
+          <mat-error *ngFor="let validation of account_validation_messages.description">
+            <mat-error class="error-message"
+                       *ngIf="regiForm.get('description').hasError(validation.type) && (regiForm.get('description').dirty || regiForm.get('description').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+          -->
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="dateofappointment" class="start" matInput [matDatepicker]="picker"
+                 placeholder="Appointment Date" (focus)="picker.open()" [min]="today">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker touchUi="true" #picker></mat-datepicker>
+          <!--  -->
+          <mat-error *ngFor="let validation of account_validation_messages.dateofappointment">
+            <mat-error class="error-message" *ngIf="regiForm.get('dateofappointment').hasError(validation.type) && (regiForm.get('dateofappointment').dirty || regiForm.get('dateofappointment').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-select formControlName="hourofappointment" placeholder="Time " [(value)]="selected">
+            <mat-option value="8">8 AM</mat-option>
+            <mat-option value="9">9 AM</mat-option>
+            <mat-option value="10">10 AM</mat-option>
+            <mat-option value="11">11 AM</mat-option>
+            <mat-option value="12">12 PM</mat-option>
+            <mat-option value="13">1 PM</mat-option>
+            <mat-option value="14">2 PM</mat-option>
+            <mat-option value="15">3 PM</mat-option>
+            <mat-option value="16">4 PM</mat-option>
+            <mat-option value="17">5 PM</mat-option>
+            <mat-option value="18">6 PM</mat-option>
+            <mat-option value="19">7 PM</mat-option>
+            <mat-option value="20">8 PM</mat-option>
+          </mat-select>
+          <!--
+          <mat-error>
+            <span *ngIf="!regiForm.get('hourofappointment').valid && regiForm.get('hourofappointment').touched">Please select the time !!!</span>
+          </mat-error>
+          -->
+          <mat-error *ngFor="let validation of account_validation_messages.hourofappointment">
+            <mat-error class="error-message" *ngIf="regiForm.get('hourofappointment').hasError(validation.type) && (regiForm.get('hourofappointment').dirty || regiForm.get('hourofappointment').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="dpmSelect" matInput placeholder="DPM" [matAutocomplete]="autoDpms" name="odpm">
+          <mat-autocomplete #autoDpms="matAutocomplete" [displayWith]="displayDpms" >
+            <mat-option *ngFor="let odpm of odpms" [value]="odpm">
+              {{odpm.dpmName}} / {{odpm.dpmContact}}
+            </mat-option>
+          </mat-autocomplete>
+          <!--
+          <mat-error *ngFor="let validation of account_validation_messages.dpmSelect">
+            <mat-error class="error-message"
+                       *ngIf="regiForm.get('dpmSelect').hasError(validation.type) && (regiForm.get('dpmSelect').dirty || regiForm.get('dpmSelect').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+          -->
+        </mat-form-field>
+
+        <label>
+          <input hidden formControlName="departmentId" [(ngModel)]="departmentId">
+          <input hidden formControlName="centreId" [(ngModel)]="centreId">
+          <input hidden formControlName="coordinatorId" [(ngModel)]="coordinatorId">
+          <input hidden formControlName="dpmId" [(ngModel)]="dpmId">
+
+        </label>
+        <mat-card-footer>
+          <button mat-raised-button color="accent" [disabled]="!regiForm.valid">Raise Ticket</button>
+        </mat-card-footer>
+
+      </form>
+    </mat-card-content>
+  </div>
+</mat-card>

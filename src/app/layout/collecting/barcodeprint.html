@@ -1,0 +1,20 @@
+ <div mat-dialog-content>
+ 	<h1 align="center">Batch #</h1>
+  <div fxLayout="column" id="print-section">
+
+	<div fxLayout="column">
+		<!-- <ngx-barcode *ngFor="let bcValue of values" [bc-element-type]="elementType" [bc-value]="bcValue" [bc-format]="format" [bc-line-color]="lineColor"
+		 [bc-width]="width" [bc-height]="height" [bc-display-value]="displayValue" [bc-font-options]="fontOptions" [bc-font]="font"
+		 [bc-text-align]="textAlign" [bc-text-position]="textPosition" [bc-text-margin]="textMargin" [bc-font-size]="fontSize" [bc-background]="background"
+		 [bc-margin]="margin" [bc-margin-top]="marginTop" [bc-margin-bottom]="marginBottom" [bc-margin-left]="marginLeft" [bc-margin-right]="marginRight"></ngx-barcode> -->
+		 <ngx-barcode [bc-value]="Barcodegenerate.batchNumber"  [bc-element-type]="elementType"  [bc-format]="format" [bc-line-color]="lineColor"
+		 [bc-width]="width" [bc-height]="height" [bc-display-value]="displayValue" [bc-font-options]="fontOptions" [bc-font]="font"
+		 [bc-text-align]="textAlign" [bc-text-position]="textPosition" [bc-text-margin]="textMargin" [bc-font-size]="fontSize" [bc-background]="background"
+		 [bc-margin]="margin" [bc-margin-top]="marginTop" [bc-margin-bottom]="marginBottom" [bc-margin-left]="marginLeft" [bc-margin-right]="marginRight"></ngx-barcode>
+	</div>
+</div>
+</div>
+<div mat-dialog-actions align="center">
+  <button mat-button (click)="openDialog()"  printSectionId="print-section"  ngxPrint color="accent">Print</button>
+</div>
+<!--style="margin-left: 21%;"-->

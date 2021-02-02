@@ -1,0 +1,150 @@
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+th, td {
+  overflow: hidden;
+  width: 100px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
+    padding: 10px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+th.mat-header-cell
+ {
+    color:#224f88;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    font-size: 18px;
+}
+button.add.mat-button
+{
+  color:#de0f0f;
+  background-color:#ffc0cb;
+  margin-bottom: 20px;
+}
+mat-card-title
+{
+color: #224f88;
+}
+mat-icon.print1.mat-icon
+{
+color:#368278;	
+}
+mat-icon.edit.mat-icon
+{
+color:#1b4fb1f5;
+}
+mat-icon.delete.mat-icon
+{
+color:#bf1111f0;
+}
+mat-icon
+{
+ padding: 3px !important;
+}
+mat-form-field
+{
+  width:100%;
+}
+
+.mat-column-ticket {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 10% !important;
+  width: 10% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-status {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 10% !important;
+  width: 10% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+.mat-column-dpm {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 15% !important;
+  width: 15% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-centreName {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 20% !important;
+  width: 20% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-description {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 45% !important;
+  width: 45% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+/*
+.mat-column-action {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 10% !important;
+  width: 10% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+*/

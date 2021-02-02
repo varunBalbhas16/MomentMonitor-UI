@@ -1,0 +1,39 @@
+/*.example-container {
+  display: flex;
+  flex-direction: column;
+}
+.example-container > * {
+  width: 100%;
+}*/
+/*.example-container1 {
+  display: flex;
+  flex-direction: column;
+}
+.example-container1 > * {
+  width: 100%;
+}*/
+.form{
+  top: 5px;
+}
+button.mat-raised-button.mat-accent
+{
+	font-family:Roboto,"Helvetica Neue",sans-serif;
+  color:#0a0606e8!important;
+  margin-left: 8px;
+  margin: 15px !important;
+}
+mat-card-title
+{
+color:#224f88;
+}
+mat-form-field
+{
+  width:100%;
+}
+/*button.print.mat-button
+{
+  background-color: #3cadab!important;
+  margin-left: 4px;
+  font-family:Roboto,"Helvetica Neue",sans-serif;
+  color:white;
+}*/

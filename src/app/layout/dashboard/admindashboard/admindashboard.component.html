@@ -1,0 +1,159 @@
+  <mat-card-title>ADMIN DASHBOARD</mat-card-title>
+  <div class="row">
+  <div class="mb-20" fxFlex fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px">
+    <div fxFlex="20%">
+        <mat-card  fxLayoutAlign="center center" class="header1">
+        <mat-card-subtitle>Tickets</mat-card-subtitle>
+        </mat-card>
+        <div class="row" class="block1">
+        <mat-card class="common1">
+        <div class="mb-20" fxFlex fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px">
+        <div fxFlex="100%" fxLayoutGap="10px"  fxLayout="row">
+        <div fxFlex="40%" fxLayoutGap="0px">
+        <mat-card class="header11">
+        <mat-icon>school</mat-icon>
+        </mat-card>
+        </div>
+        <div fxFlex="60%" fxLayoutGap="0px">
+         <mat-card class="header111">
+        <strong>{{getadmindashboard.tickets}}</strong>
+        </mat-card>
+        </div>
+        </div>
+        </div>
+        </mat-card>
+        </div>
+    </div>
+     <div fxFlex="20%">
+        <mat-card  fxLayoutAlign="center center" class="header2">
+        <mat-card-subtitle>Open Tickets</mat-card-subtitle>
+        </mat-card>
+        <div class="row" class="block1">
+        <mat-card class="common2">
+        <div class="mb-20" fxFlex fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px">
+        <div fxFlex="100%" fxLayoutGap="10px"  fxLayout="row">
+        <div fxFlex="40%" fxLayoutGap="0px">
+        <mat-card class="header12">
+        <mat-icon>store</mat-icon>
+        </mat-card>
+        </div>
+        <div fxFlex="60%" fxLayoutGap="0px">
+         <mat-card class="header122">
+        <strong>{{getadmindashboard.openTickets}}</strong>
+        </mat-card>
+        </div>
+        </div>
+        </div>
+        </mat-card>
+        </div>
+    </div>
+     <div fxFlex="20%">
+        <mat-card  fxLayoutAlign="center center" class="header3">
+        <mat-card-subtitle>Trip Kms</mat-card-subtitle>
+        </mat-card>
+        <div class="row" class="block3">
+        <mat-card class="common3">
+        <div class="mb-20" fxFlex fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px">
+        <div fxFlex="100%" fxLayoutGap="10px"  fxLayout="row">
+        <div fxFlex="40%" fxLayoutGap="0px">
+        <mat-card class="header13">
+        <mat-icon>person</mat-icon>
+        </mat-card>
+        </div>
+        <div fxFlex="60%" fxLayoutGap="0px">
+         <mat-card class="header133">
+        <strong>{{getadmindashboard.tripKms}}</strong>
+        </mat-card>
+        </div>
+        </div>
+        </div>
+        </mat-card>
+        </div>
+    </div>
+     <div fxFlex="20%">
+        <mat-card  fxLayoutAlign="center center" class="header4">
+        <mat-card-subtitle>Trips Cost (INR)</mat-card-subtitle>
+        </mat-card>
+        <div class="row" class="block4">
+        <mat-card class="common4">
+        <div class="mb-20" fxFlex fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px">
+        <div fxFlex="100%" fxLayoutGap="10px"  fxLayout="row">
+        <div fxFlex="40%" fxLayoutGap="0px">
+        <mat-card class="header14">
+        <mat-icon>supervisor_account</mat-icon>
+        </mat-card>
+        </div>
+        <div fxFlex="60%" fxLayoutGap="0px">
+         <mat-card class="header144">
+        <strong>{{getadmindashboard.tripCost}} </strong>
+        </mat-card>
+        </div>
+        </div>
+        </div>
+        </mat-card>
+        </div>
+    </div>
+    <div fxFlex="20%">
+      <mat-card  fxLayoutAlign="center center" class="header5">
+        <mat-card-subtitle>Drivers Attendance</mat-card-subtitle>
+      </mat-card>
+      <div class="row" class="block4">
+        <mat-card class="common5">
+          <div class="mb-20" fxFlex fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px">
+            <div fxFlex="100%" fxLayoutGap="10px"  fxLayout="row">
+              <div fxFlex="40%" fxLayoutGap="0px">
+                <mat-card class="header15">
+                  <mat-icon>supervisor_account</mat-icon>
+                </mat-card>
+              </div>
+              <div fxFlex="60%" fxLayoutGap="0px">
+                <mat-card class="header155">
+                  <strong>{{getadmindashboard.driversAttendance}} </strong>
+                </mat-card>
+              </div>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+</div>
+</div>
+<div class="row">
+
+  <div class="mb-20" fxFlex fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px">
+
+    <div fxFlex="50%">
+        <mat-card>
+       <div *ngIf="chart">
+        <canvas id="canvas">{{ chart }}</canvas>
+       </div>
+        </mat-card>
+    </div>
+     <div fxFlex="50%">
+        <mat-card>
+       <div *ngIf="chart">
+        <!--<canvas id="topschool">{{ topschool }}</canvas>-->
+         <canvas id="ticketDPMRanking">{{ ticketDPMRanking }}</canvas>
+       </div>
+        </mat-card>
+    </div>
+  </div>
+ <div class="mb-20" fxFlex fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px">
+
+    <div fxFlex="50%">
+        <mat-card>
+       <div>
+        <canvas id="ticketStatsBar">{{ ticketStatsBar }}</canvas>
+       </div>
+        </mat-card>
+    </div>
+     <div fxFlex="50%">
+        <mat-card>
+       <div >
+        <canvas id="driverAttendanceBar">{{ driverAttendanceBar }}</canvas>
+       </div>
+        </mat-card>
+    </div>
+  </div>
+
+</div>

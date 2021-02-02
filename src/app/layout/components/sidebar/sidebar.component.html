@@ -1,0 +1,131 @@
+<div id="sidebar">
+    <mat-nav-list *ngIf="currentUser.roleName == 'admin' || currentUser.roleName == 'ticket admin'" >
+        <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/admindashboard']">
+            <mat-icon class="sidenav-icon">dashboard</mat-icon> {{ 'Dashboard'  }}
+        </a>
+<!--
+        <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/admin/addentity']">
+            <mat-icon class="sidenav-icon">grid_on</mat-icon> {{ 'Add Entity' }}
+        </a>
+         <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/admin/listentity']">
+            <mat-icon class="sidenav-icon">view_list</mat-icon> {{ 'List Entity' }}
+        </a>
+-->
+      <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/admin/addzone']">
+        <mat-icon class="sidenav-icon">grid_on</mat-icon> {{ 'Add Zone' }}
+      </a>
+
+      <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/admin/listzone']">
+        <mat-icon class="sidenav-icon">view_list</mat-icon> {{ 'List Zones' }}
+      </a>
+
+      <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/admin/adddepartment']">
+        <mat-icon class="sidenav-icon">grid_on</mat-icon> {{ 'Add Department' }}
+      </a>
+
+      <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/admin/listdepartment']">
+        <mat-icon class="sidenav-icon">view_list</mat-icon> {{ 'List Departments' }}
+      </a>
+
+      <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/admin/addcenter']">
+        <mat-icon class="sidenav-icon">grid_on</mat-icon> {{ 'Add Centre' }}
+      </a>
+      <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/admin/listcentre']">
+        <mat-icon class="sidenav-icon">view_list</mat-icon> {{ 'List Centres' }}
+      </a>
+      <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/admin/raiseticket']">
+        <mat-icon class="sidenav-icon">grid_on</mat-icon> {{ 'Raise Ticket' }}
+      </a>
+
+      <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/admin/ticketlist']">
+        <mat-icon class="sidenav-icon">grid_on</mat-icon> {{ 'List Tickets' }}
+      </a>
+      <!--
+              <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/admin/addprogram']">
+                  <mat-icon class="sidenav-icon">add_to_queue</mat-icon> {{ 'Add Program'  }}
+              </a>
+
+              <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/admin/activeprogramlist']">
+                  <mat-icon class="sidenav-icon"><i className="material-icons">assignment_turned_in</i></mat-icon> {{ 'Mapping List Program'  }}
+              </a>
+               <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/admin/programlist']">
+                  <mat-icon class="sidenav-icon">school</mat-icon> {{ 'List Program'  }}
+              </a>
+              -->
+        <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/admin/adduser']">
+            <mat-icon class="sidenav-icon">person</mat-icon> {{ 'Add User'  }}
+        </a>
+        <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/admin/userlist']">
+            <mat-icon class="sidenav-icon">verified_user</mat-icon> {{ 'List Users'  }}
+        </a>
+      <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/admin/fieldtriplist']">
+        <mat-icon class="sidenav-icon">grid_on</mat-icon> {{ 'List Trips'  }}
+      </a>
+	  <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/admin/attendancelist']">
+        <mat-icon class="sidenav-icon">grid_on</mat-icon> {{ 'Driver Attendance'  }}
+      </a>
+ </mat-nav-list>
+
+ <mat-nav-list *ngIf="currentUser.roleName == 'centre head'">
+   <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/centerhead/mapdepartment']">
+     <mat-icon class="sidenav-icon">grid_on</mat-icon> {{ 'Add Department' }}
+   </a>
+
+   <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/centerhead/listmapdepartments']">
+     <mat-icon class="sidenav-icon">view_list</mat-icon> {{ 'List Departments' }}
+   </a>
+    <!--
+   <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/centerhead/mapdpm']">
+     <mat-icon class="sidenav-icon">grid_on</mat-icon> {{ 'Add DPM' }}
+   </a>
+  
+    <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/collecting/retailerhistory']">
+        <mat-icon class="sidenav-icon">change_history</mat-icon> {{ 'Retailer History'}}
+    </a>
+    -->
+</mat-nav-list>
+<mat-nav-list *ngIf="currentUser.roleName == 'Sorting Supervisor'">
+        <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/supervisor/supervisorpage']">
+            <mat-icon class="sidenav-icon">supervisor_account</mat-icon> {{ 'Supervisor'}}
+        </a>
+         <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/supervisor/supervisorlist']">
+            <mat-icon class="sidenav-icon">list</mat-icon> {{ 'List Batches'}}
+        </a>
+         <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/supervisor/listofagent']">
+            <mat-icon class="sidenav-icon">list</mat-icon> {{ 'List Agents'}}
+        </a>
+</mat-nav-list>
+<mat-nav-list *ngIf="currentUser.roleName == 'School Admin'">
+
+      <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/dashboard/schooladmindashboard']">
+          <mat-icon class="sidenav-icon">dashboard</mat-icon> {{ 'Schooladmin Dashboard'}}
+      </a>
+  <!--
+       <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/schooladmin/schooladminpage']">
+          <mat-icon class="sidenav-icon">code</mat-icon> {{ 'Schooladmin Page'}}
+      </a> -->
+         <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/schooladmin/schooladminhistory']">
+            <mat-icon class="sidenav-icon">history</mat-icon> {{ 'Schooladmin History'}}
+        </a>
+         <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/schooladmin/studenthistory']">
+            <mat-icon class="sidenav-icon">autorenew</mat-icon> {{ 'Student History'}}
+        </a>
+</mat-nav-list>
+<mat-nav-list *ngIf="currentUser.roleName == 'Sorting Agent'">
+        <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/sorting/systemdetails']">
+            <mat-icon class="sidenav-icon">table_chart</mat-icon> {{ 'Sorting'}}
+        </a>
+</mat-nav-list>
+<mat-nav-list *ngIf="currentUser.roleName == 'Retailer Admin'">
+        <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/dashboard/retailerdashboard']">
+            <mat-icon class="sidenav-icon">repeat</mat-icon> {{ 'Retailer Dashboard'}}
+        </a>
+        <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/retailer/listmapdepartments']">
+            <mat-icon class="sidenav-icon">repeat</mat-icon> {{ 'Retailer List'}}
+        </a>
+         <!--  <a mat-list-item  [routerLinkActive]="'active'" [routerLink]="['/retailer/retailerbatchdetails']">
+            <mat-icon class="sidenav-icon">repeat</mat-icon> {{ 'Retailer Batch List'}}
+        </a> -->
+
+</mat-nav-list>
+</div>

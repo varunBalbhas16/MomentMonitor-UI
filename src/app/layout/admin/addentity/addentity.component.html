@@ -1,0 +1,139 @@
+<!--
+<mat-card-title>ZONE INFORMATION</mat-card-title>
+
+<mat-card>
+  <div class="form">
+
+    <mat-card-subtitle>
+      <br>
+      <mat-button-toggle-group multiple (change)="toggleChange($event)">
+        <mat-button-toggle value="School">School</mat-button-toggle>
+        <mat-button-toggle value="Retailer">Retailer</mat-button-toggle>
+      </mat-button-toggle-group>
+    </mat-card-subtitle>
+  </div>
+</mat-card>
+-->
+
+<mat-card class="form">
+  <div class="example-container">
+    <mat-card-title>ZONE INFORMATION</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">
+
+        <mat-form-field>
+          <input formControlName="name" matInput placeholder="Zone Name">
+          <mat-error *ngFor="let validation of account_validation_messages.name">
+            <mat-error class="error-message"
+                       *ngIf="regiForm.get('name').hasError(validation.type) && (regiForm.get('name').dirty || regiForm.get('name').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+
+        <!--
+        <mat-form-field>
+          <textarea formControlName="address" matInput placeholder="Address" matTextareaAutosize matAutosizeMinRows="2"
+                    matAutosizeMaxRows="5"></textarea>
+          <mat-error *ngFor="let validation of account_validation_messages.address">
+            <mat-error class="error-message"
+                       *ngIf="regiForm.get('address').hasError(validation.type) && (regiForm.get('address').dirty || regiForm.get('address').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="landmark" matInput placeholder="Landmark">
+          <mat-error *ngFor="let validation of account_validation_messages.landmark">
+            <mat-error class="error-message"
+                       *ngIf="regiForm.get('landmark').hasError(validation.type) && (regiForm.get('landmark').dirty || regiForm.get('landmark').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="contactperson" matInput placeholder="Contact Person">
+          <mat-error *ngFor="let validation of account_validation_messages.contactperson">
+            <mat-error class="error-message"
+                       *ngIf="regiForm.get('contactperson').hasError(validation.type) && (regiForm.get('contactperson').dirty || regiForm.get('contactperson').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="mobilenumber" type="number" matInput placeholder="Contact Phone Number">
+          <mat-error *ngFor="let validation of account_validation_messages.mobilenumber">
+            <mat-error class="error-message"
+                       *ngIf="regiForm.get('mobilenumber').hasError(validation.type) && (regiForm.get('mobilenumber').dirty || regiForm.get('mobilenumber').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="email" matInput placeholder="Contact Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+          <mat-error *ngFor="let validation of account_validation_messages.email">
+            <mat-error class="error-message"
+                       *ngIf="regiForm.get('email').hasError(validation.type) && (regiForm.get('email').dirty || regiForm.get('email').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+        -->
+        <mat-card-footer>
+          <button mat-raised-button color="accent" [disabled]="!regiForm.valid">Create</button>
+        </mat-card-footer>
+
+      </form>
+    </mat-card-content>
+  </div>
+</mat-card>
+<!--
+<mat-card *ngIf="form == 'Retailer'" class="form">
+  <div class="example-container1">
+    <mat-card-title>DEPARTMENT MASTER</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="regiForm1" (ngSubmit)="onFormSubmit(regiForm1.value)">
+
+        <mat-form-field>
+          <input formControlName="name" matInput placeholder="Store
+                             Name">
+          <mat-error *ngFor="let validation of account_validation_messages.name">
+            <mat-error class="error-message"
+                       *ngIf="regiForm1.get('name').hasError(validation.type) && (regiForm1.get('name').dirty || regiForm1.get('name').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <textarea formControlName="address" matInput placeholder="Address" matTextareaAutosize matAutosizeMinRows="2"
+                    matAutosizeMaxRows="5"></textarea>
+          <mat-error *ngFor="let validation of account_validation_messages.address">
+            <mat-error class="error-message"
+                       *ngIf="regiForm1.get('address').hasError(validation.type) && (regiForm1.get('address').dirty || regiForm1.get('address').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="landmark" matInput placeholder="Landmark">
+          <mat-error *ngFor="let validation of account_validation_messages.landmark">
+            <mat-error class="error-message"
+                       *ngIf="regiForm1.get('landmark').hasError(validation.type) && (regiForm1.get('landmark').dirty || regiForm1.get('landmark').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="contactperson" matInput placeholder="Contact Person">
+          <mat-error *ngFor="let validation of account_validation_messages.contactperson">
+            <mat-error class="error-message"
+                       *ngIf="regiForm.get('contactperson').hasError(validation.type) && (regiForm.get('contactperson').dirty || regiForm.get('contactperson').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="mobilenumber" type="number" matInput placeholder="Phone Number">
+          <mat-error *ngFor="let validation of account_validation_messages.mobilenumber">
+            <mat-error class="error-message"
+                       *ngIf="regiForm.get('mobilenumber').hasError(validation.type) && (regiForm.get('mobilenumber').dirty || regiForm.get('mobilenumber').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="email" matInput placeholder="Email">
+          <mat-error *ngFor="let validation of account_validation_messages.email">
+            <mat-error class="error-message"
+                       *ngIf="regiForm.get('email').hasError(validation.type) && (regiForm.get('email').dirty || regiForm.get('email').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+        <mat-card-footer>
+          <button mat-raised-button color="accent" [disabled]="!regiForm1.valid">Create</button>
+        </mat-card-footer>
+
+      </form>
+    </mat-card-content>
+  </div>
+</mat-card>
+-->

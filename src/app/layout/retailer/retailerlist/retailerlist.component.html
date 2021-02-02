@@ -1,0 +1,34 @@
+<mat-card-title>RETAILER PROGRAM LIST</mat-card-title>
+<mat-card>
+<div class="example">
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="collectionDate">
+      <th mat-header-cell *matHeaderCellDef>DATE</th>
+      <td mat-cell *matCellDef="let element"> {{element.collectionDate | date}} </td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>RETAILER</th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+    <ng-container matColumnDef="programName">
+      <th mat-header-cell *matHeaderCellDef>PROGRAM</th>
+      <td mat-cell *matCellDef="let element"> {{element.programName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="collectionTotalWeight">
+      <th mat-header-cell *matHeaderCellDef>TOTAL<br> WEIGHT</th>
+      <td mat-cell *matCellDef="let element"> {{element.collectionTotalWeight}} </td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>ACTION</th>
+      <td mat-cell *matCellDef="let element">
+        <mat-icon class="show" [routerLink]="['/retailer/retailerbatchdetails',element.collectionId]" matTooltip="Show Details">open_in_browser</mat-icon>
+        <mat-icon class="print1" (click)="print(element)" matTooltip="Print">print</mat-icon>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+</mat-card>
+

@@ -1,0 +1,59 @@
+<!-- <div class="main-container"> -->
+<mat-card *ngIf="data.collection === 'Retailer'">
+  <div class="example-container">
+  <mat-card-title>RETAILER MODEL</mat-card-title>
+  	<mat-form-field >
+		<input matInput placeholder="Retailer">
+	</mat-form-field>
+    <mat-form-field>
+		<input matInput placeholder="Number of bags">
+	</mat-form-field>
+	<mat-form-field>
+		<input matInput placeholder="Total weight">
+	</mat-form-field>
+   <mat-card-footer>
+  	<button mat-button class="confirm" (click)="onNoClick()">Confirm</button>
+  	<button mat-button class="print" (click)="onNoClick()">Print</button>
+   </mat-card-footer>
+   </div>
+</mat-card>
+<mat-card *ngIf="data.collection === 'School'">
+  <div class="sub-container-schoolmodal">
+  <mat-card-title>SCHOOL MODEL</mat-card-title>
+  	<mat-form-field>
+		<input matInput placeholder="School">
+	</mat-form-field>
+    <mat-form-field>
+		<input matInput placeholder="Programs">
+	</mat-form-field>
+	<mat-form-field>
+		<input matInput placeholder="Number of bags">
+	</mat-form-field>
+	<mat-form-field>
+		<input matInput placeholder="Total weight">
+	</mat-form-field>
+  <mat-card-footer>
+  	<button mat-button class="confirm" (click)="onNoClick()">Confirm</button>
+  </mat-card-footer>
+  </div>
+</mat-card>	
+<!-- </div> -->
+
+<!-- <div >
+<h1 mat-dialog-title>RETAILER MODEL</h1>
+<div mat-dialog-content class="example-container">
+ <mat-form-field >
+		<input matInput placeholder="Retailer">
+	</mat-form-field>
+    <mat-form-field>
+		<input matInput placeholder="No.of.bags">
+	</mat-form-field>
+	<mat-form-field>
+		<input matInput placeholder="Total weight">
+	</mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" class="confirm">Confirm</button>
+  <button mat-button  cdkFocusInitial class="print">Print</button>
+</div>
+</div> -->

@@ -1,0 +1,46 @@
+<mat-card>
+  <div class="example-container">
+  <mat-card-title>SCHOOL ADMINPAGE</mat-card-title>
+   <mat-card-content>  
+        <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">  
+              
+                       <mat-form-field>  
+                            <input formControlName="SchoolAdmin" matInput placeholder="School Admin">  
+                        </mat-form-field>  
+                        <mat-error>  
+                            <span *ngIf="!regiForm.get('SchoolAdmin').valid && regiForm.get('SchoolAdmin').touched">Please enter School Admin !!!</span>  
+                        </mat-error>
+                        <mat-form-field>  
+                            <input formControlName="Program" matInput placeholder="Program">  
+                        </mat-form-field>  
+                        <mat-error>  
+                            <span *ngIf="!regiForm.get('Program').valid && regiForm.get('Program').touched">Please enter Program !!!</span>  
+                        </mat-error>
+                        <mat-form-field>  
+                            <input formControlName="Class" matInput placeholder="Class">  
+                        </mat-form-field>  
+                        <mat-error>  
+                            <span *ngIf="!regiForm.get('Class').valid && regiForm.get('Class').touched">Please enter Class !!!</span>  
+                        </mat-error>
+                        <mat-form-field>  
+                            <input formControlName="Section" matInput placeholder="Section">  
+                        </mat-form-field>  
+                        <mat-error>  
+                            <span *ngIf="!regiForm.get('Section').valid && regiForm.get('Section').touched">Please enter Section !!!</span>  
+                        </mat-error>
+                        <mat-form-field>  
+                            <input formControlName="Student" matInput placeholder="Student">  
+                        </mat-form-field>  
+                        <mat-error>  
+                            <span *ngIf="!regiForm.get('Student').valid && regiForm.get('Student').touched">Please enter Student !!!</span>  
+                        </mat-error>                                                                                
+                        <mat-card-footer>                        
+                        <button mat-raised-button color="accent" [disabled]="!regiForm.valid" (click)="openDialog()">Print Label</button>
+                        </mat-card-footer> 
+                   
+        </form>  
+    </mat-card-content>
+</div>
+</mat-card>
+
+

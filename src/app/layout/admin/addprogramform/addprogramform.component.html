@@ -1,0 +1,52 @@
+<mat-card-title>ASSIGN PROGRAM </mat-card-title>
+<mat-card class="form">
+  <div class="example-container">
+  <mat-card-content>  
+        <form [formGroup]="regiForm" (ngSubmit)="addprogramFormSubmit(regiForm)">  
+            
+                       <mat-form-field>  
+                      <!--         <mat-select formControlName="program" matInput placeholder="Program Name"  (selectionChange)="onChange(regiForm.value)"  >
+                              <mat-option *ngFor="let getallprograms of getallprogram" [value]="getallprograms">{{getallprograms.programName}}</mat-option>
+                            </mat-select>  -->
+                             <mat-select formControlName="programId" matInput placeholder="Program Name" (selectionChange)="getprogramdetails(regiForm.value.programId)">
+                              <mat-option *ngFor="let getallprograms of getallprogram" [value]="getallprograms">{{getallprograms.programName}}</mat-option>
+                            </mat-select> 
+                               </mat-form-field>  
+                        <mat-error>  
+                            <span *ngIf="!regiForm.get('programId').valid && regiForm.get('programId').touched">Please enter Program Name !!!</span>  
+                        </mat-error> 
+             <!--              <div  formArrayName="assignProgram" *ngFor="let creds of regiForm.get('assignProgram').controls; let i = index">
+                         <ng-container [formGroupName]="i">  -->
+                            <div>
+                         <ng-container> 
+                                                        
+                        <mat-form-field>  
+                            <input formControlName="startDate" matInput [matDatepicker]="picker" placeholder="Start Date" [min]="startdate" [max]="enddate" (focus)="picker.open()">  
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>  
+                            <mat-datepicker touchUi="true" #picker></mat-datepicker>  
+                        </mat-form-field>  
+                       <!--  <mat-error>  
+                         <span *ngIf="!regiForm.get('StartDate').valid && regiForm.get('StartDate').touched">Please select any Date !!!</span>
+                        </mat-error> -->    
+                        <mat-form-field>  
+                            <input formControlName="endDate" matInput [matDatepicker]="picker1" placeholder="End Date" [min]="regiForm.value.startDate" [max]="enddate" (focus)="picker1.open()">  
+                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>  
+                            <mat-datepicker touchUi="true" #picker1></mat-datepicker>  
+                        </mat-form-field>  
+                   <!--      <mat-error>  
+                         <span *ngIf="!regiForm.get('EndDate').valid && regiForm.get('EndDate').touched">Please select any Date !!!</span>
+                        </mat-error> -->
+                      </ng-container>
+                         </div>   
+                        <mat-card-footer>                        
+                        <button mat-raised-button color="accent" [disabled]="!regiForm.valid">Submit</button>
+                        <button mat-button class="add"  [routerLink]="['/admin/listentity']" matTooltip="back">Cancel</button>
+                        </mat-card-footer> 
+              
+        </form>  
+    </mat-card-content>
+   </div>
+</mat-card>
+
+
+

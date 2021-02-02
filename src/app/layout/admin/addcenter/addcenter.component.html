@@ -1,0 +1,75 @@
+<mat-card class="form">
+  <div class="example-container">
+    <mat-card-title>CENTRE INFORMATION</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">
+
+        <mat-form-field>
+          <input formControlName="centreName" matInput placeholder="Centre Name">
+          <mat-error *ngFor="let validation of centreCheck.name">
+            <mat-error class="error-message"
+                       *ngIf="regiForm.get('name').hasError(validation.type) && (regiForm.get('name').dirty || regiForm.get('name').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="centreCode" matInput placeholder="Centre Code" maxlength="10">
+          <mat-error *ngFor="let validation of centreCheck.code">
+            <mat-error class="error-message"
+                       *ngIf="regiForm.get('code').hasError(validation.type) && (regiForm.get('code').dirty || regiForm.get('code').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="czone" matInput placeholder="Zone" [matAutocomplete]="auto" name="zonename">
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayZones" >
+            <mat-option *ngFor="let zonename of zones " [value]="zonename">
+              {{ zonename.zone }} ({{zonename.code}})
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="chead" matInput placeholder="Centre Head" [matAutocomplete]="autoCHead" name="centrehead">
+          <mat-autocomplete #autoCHead="matAutocomplete" [displayWith]="displayCHeads" >
+            <mat-option *ngFor="let centrehead of centreheads " [value]="centrehead">
+              {{ centrehead.firstName }} {{ centrehead.lastName }} ({{centrehead.contact}})
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="landline" matInput placeholder="Centre Landline Number with STD code">
+          <mat-error *ngFor="let validation of centreCheck.landline">
+            <mat-error class="error-message"
+                       *ngIf="regiForm.get('landline').hasError(validation.landline) && (regiForm.get('landline').dirty || regiForm.get('landline').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <textarea formControlName="address" matInput placeholder="Address of the Centre" matTextareaAutosize matAutosizeMinRows="2"
+                    matAutosizeMaxRows="5"></textarea>
+        </mat-form-field>
+
+        <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="onPickLocation($event)" [(zoom)]="zoomed">
+          <agm-marker [latitude]="lat" [longitude]="lng" *ngIf="showMarker">
+          </agm-marker>
+        </agm-map>
+
+        <label>
+          <input formControlName="xcoordinates" matInput placeholder="Location Co-ordinates" readonly [(ngModel)]="xcoordinates">
+          <input hidden formControlName="latitude" [(ngModel)]="latitude">
+          <input hidden formControlName="longitude" [(ngModel)]="longitude">
+          <input hidden formControlName="zoneId" [(ngModel)]="zoneId">
+          <input hidden formControlName="headId" [(ngModel)]="headId">
+        </label>
+
+        <mat-card-footer>
+          <button mat-raised-button color="accent" [disabled]="!regiForm.valid">Create</button>
+        </mat-card-footer>
+
+      </form>
+    </mat-card-content>
+  </div>
+</mat-card>
+

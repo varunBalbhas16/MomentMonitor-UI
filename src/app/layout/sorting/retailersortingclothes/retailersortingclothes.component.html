@@ -1,0 +1,87 @@
+<mat-card>
+  <div>
+   <mat-grid-list cols="4"  rowHeight="1rem">
+  <mat-grid-tile><strong>Organisation : </strong>{{Organisation}}</mat-grid-tile>
+  <mat-grid-tile><strong>Box number : </strong>{{boxNumber}} </mat-grid-tile>
+    <mat-grid-tile><strong>Box weight : </strong>{{boxWeight}} </mat-grid-tile>
+  <mat-grid-tile><strong>Date :</strong>{{Date | date}}</mat-grid-tile>
+ </mat-grid-list>
+
+  <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">  
+  <mat-form-field class="example-container">
+		<input matInput placeholder="Weight" formControlName="Weight" type="number" id="weight"  step="0.01" [(ngModel)]="weightvalue.description" name="description">
+    <mat-error *ngFor="let validation of validation_messages.Weight">
+     <mat-error class="error-message" *ngIf="regiForm.get('Weight').hasError(validation.type) && (regiForm.get('Weight').dirty || regiForm.get('Weight').touched)">{{validation.message}}</mat-error>
+    </mat-error>
+	</mat-form-field>
+   <mat-form-field class="example-container">
+    <input matInput placeholder=" Number Of Items" formControlName="items" type="number"  min="0" [(ngModel)]="weightvalue.items" name="items">
+     <mat-error *ngFor="let validation of validation_messages.items">
+    <mat-error class="error-message" *ngIf="regiForm.get('items').hasError(validation.type) && (regiForm.get('items').dirty || regiForm.get('items').touched)">{{validation.message}}</mat-error>
+    </mat-error>
+  </mat-form-field>
+  <div class="mb-20" fxFlex fxLayout="row"  fxLayoutGap="20px" class="cursor"> 
+   <div class="mb-20" fxFlex fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px">
+    <div [fxFlex]="mainCategories" *ngFor="let mainCategories of ['Usable', 'Repairs', 'Unusable','Donation Single', 'Donation', 'Used'];let i = index" >
+        <mat-card fxFlexFill  fxLayoutAlign="center center"  (click)="MainCategories(mainCategories,$event)" [ngClass]="{'highlight' : selected[i], 'not-highlight' : !selected[i]}" [ngStyle]="{backgroundColor: mainCategories === mainbackgroundcolor ? '#3085d6;' : '#fff'}">
+           <mat-card-header >
+               <strong>{{mainCategories}}</strong>
+            </mat-card-header>
+        </mat-card>
+    </div>
+   </div>
+ </div>
+ <div class="mb-20" fxFlex fxLayout="row"  fxLayoutGap="20px" class="cursor" *ngIf="maincategories == 'clicked'"> 
+   <div class="mb-20" fxFlex fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" >
+    <div [fxFlex]="subCategories" *ngFor="let subCategories of ['Clothes', 'Socks(pair)', 'Underwear','Hand bags', 'shoes(pair)']" >
+        <mat-card fxFlexFill  fxLayoutAlign="center center"  (click)="SubCategories(subCategories)" [ngStyle]="{backgroundColor: subCategories === subbackgroundcolor ? '#3085d685' : '#fff'}">
+           <mat-card-header >
+              {{subCategories}}
+            </mat-card-header>
+        </mat-card>
+    </div>
+   </div>
+</div>
+<div class="mb-20" fxFlex fxLayout="row"  fxLayoutGap="20px" class="cursor" *ngIf="maincategories == 'clicked'"> 
+   <div class="mb-20" fxFlex fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" >
+    <div [fxFlex]="subCategories" *ngFor="let subCategories of ['Jewellery & Accessories','Hats','Watches','Household goods','Other']" >
+        <mat-card fxFlexFill  fxLayoutAlign="center center"  (click)="SubCategories(subCategories)" [ngStyle]="{backgroundColor: subCategories === subbackgroundcolor ? '#3085d685' : '#fff'}">
+           <mat-card-header >
+              {{subCategories}}
+            </mat-card-header>
+        </mat-card>
+    </div>
+   </div>
+</div>
+<mat-card-footer>
+   <button mat-raised-button color="accent" (click)="undo()" type="button" [disabled]="!showUndo">Undo</button>
+</mat-card-footer>
+<mat-card class="tableshow">
+   <table class="imageshow">
+  <tr>
+  	<th>Main Category</th>
+    <th>Sub Category</th>
+    <th>Weight</th>
+    <th>Items</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let Weight of WeightArray; let i = index">
+     <!-- <td><img [src]="Weight.image" class="image" /></td> -->
+     <td>{{Weight.categoryName}}</td>
+     <td>{{Weight.retailerSubCategoryName}}</td>
+     <td>{{Weight.weight}}</td>
+     <td>{{Weight.items}}</td>
+    <td><mat-icon class="delete" matTooltip="delete" (click)="Removerow(i)">delete</mat-icon>
+    </td>
+   
+  </tr>
+  <tr><td><strong>Total weight : {{totalweight}}</strong></td></tr>
+   </table>
+  <!-- <strong>Total weight : {{totalweight}} </strong> -->
+</mat-card> 
+  <mat-card-footer>
+  	<button mat-raised-button color="accent"  [disabled]="!regiForm.valid" >Submit</button>
+   </mat-card-footer>
+</form>
+</div>
+</mat-card>

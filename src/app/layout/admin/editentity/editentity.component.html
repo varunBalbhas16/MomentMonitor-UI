@@ -1,0 +1,54 @@
+<mat-card-title>EDIT ENTITY</mat-card-title>
+<mat-card  class="form">
+  <div class="example-container">
+    <mat-card-content>  
+        <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">  
+              
+                      <mat-form-field>  
+                            <input formControlName="name" matInput placeholder="School
+                             Name">  
+                             <mat-error *ngFor="let validation of account_validation_messages.name">
+                              <mat-error class="error-message" *ngIf="regiForm.get('name').hasError(validation.type) && (regiForm.get('name').dirty || regiForm.get('name').touched)">{{validation.message}}</mat-error>
+                            </mat-error>
+                        </mat-form-field>                                                                       <mat-form-field>  
+                            <textarea formControlName="address" matInput placeholder="Address" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"></textarea>
+                            <mat-error *ngFor="let validation of account_validation_messages.address">
+                              <mat-error class="error-message" *ngIf="regiForm.get('address').hasError(validation.type) && (regiForm.get('address').dirty || regiForm.get('address').touched)">{{validation.message}}</mat-error> 
+                              </mat-error> 
+                        </mat-form-field>  
+
+                        <mat-form-field>  
+                            <input formControlName="landmark" matInput placeholder="Landmark">
+                              <mat-error *ngFor="let validation of account_validation_messages.landmark">
+                              <mat-error class="error-message" *ngIf="regiForm.get('landmark').hasError(validation.type) && (regiForm.get('landmark').dirty || regiForm.get('landmark').touched)">{{validation.message}}</mat-error>
+                              </mat-error>   
+                        </mat-form-field>  
+            
+                        <mat-form-field>  
+                            <input formControlName="contactperson" matInput placeholder="Contact Person"> 
+                             <mat-error *ngFor="let validation of account_validation_messages.contactperson">
+                              <mat-error class="error-message" *ngIf="regiForm.get('contactperson').hasError(validation.type) && (regiForm.get('contactperson').dirty || regiForm.get('contactperson').touched)">{{validation.message}}</mat-error>
+                              </mat-error>  
+                        </mat-form-field>  
+                        <mat-form-field>  
+                            <input formControlName="mobilenumber" type="number" matInput placeholder="Phone Number"> 
+                              <mat-error *ngFor="let validation of account_validation_messages.mobilenumber">
+                              <mat-error class="error-message" *ngIf="regiForm.get('mobilenumber').hasError(validation.type) && (regiForm.get('mobilenumber').dirty || regiForm.get('mobilenumber').touched)">{{validation.message}}</mat-error>
+                              </mat-error> 
+                        </mat-form-field>  
+                         <mat-form-field>  
+                            <input formControlName="email" matInput placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">  
+                             <mat-error *ngFor="let validation of account_validation_messages.email">
+                              <mat-error class="error-message" *ngIf="regiForm.get('email').hasError(validation.type) && (regiForm.get('email').dirty || regiForm.get('email').touched)">{{validation.message}}</mat-error>
+                              </mat-error> 
+                        </mat-form-field> 
+                        <mat-card-footer>                        
+                        <button mat-raised-button color="accent" [disabled]="!regiForm.valid" >Save</button>
+                        <button mat-button class="add"  [routerLink]="['/admin/listentity']" matTooltip="back">Cancel</button>
+                        </mat-card-footer> 
+                   
+        </form>  
+    </mat-card-content>
+   </div>
+</mat-card>
+

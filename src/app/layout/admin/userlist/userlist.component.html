@@ -1,0 +1,42 @@
+<mat-card-title>USER LIST</mat-card-title>
+<mat-card>
+<button mat-button class="add"  [routerLink]="['/admin/adduser']"><mat-icon>add_circle</mat-icon>Add User</button>
+<br>
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter by Name or email or Contact or Role column value">
+  </mat-form-field>
+  
+<div class="example">
+  <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>NAME</th>
+      <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>EMAIL</th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+    <ng-container matColumnDef="contact">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>CONTACT</th>
+      <td mat-cell *matCellDef="let element"> {{element.contact}} </td>
+    </ng-container>
+     <ng-container matColumnDef="role">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ROLE</th>
+      <td mat-cell *matCellDef="let element"> {{element.roleName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ACTION</th>
+      <td mat-cell *matCellDef="let element">
+        <!-- <mat-icon class="print1">print</mat-icon> -->
+       <mat-icon class="edit" [routerLink]="['/admin/edituser',element.userid]" matTooltip="Add User">launch</mat-icon>
+       <mat-icon class="delete" (click)="deleteUser(element.userid,element)" matTooltip="Delete User">delete_outline</mat-icon>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[20,30]" showFirstLastButtons></mat-paginator>
+</div>
+</mat-card>
+
+

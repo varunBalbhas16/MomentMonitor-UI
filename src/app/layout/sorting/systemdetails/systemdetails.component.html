@@ -1,0 +1,26 @@
+ <mat-card class="form">
+  <div class="example-container">
+  <mat-card-title>SORT A BATCH</mat-card-title>
+   <mat-card-content>
+        <form [formGroup]="regiForm" (ngSubmit)="onsystemdetailsFormSubmit(regiForm)">
+
+                       <mat-form-field>
+                            <input formControlName="batchnumber" matInput placeholder="Batch Number">
+                        </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!regiForm.get('batchnumber').valid && regiForm.get('batchnumber').touched">Please enter the Batch Number.</span>
+                        </mat-error>
+                        <mat-form-field>
+                            <input formControlName="digitalScale" type="number" matInput placeholder="Map to digital scale number">
+                        </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!regiForm.get('digitalScale').valid && regiForm.get('digitalScale').touched">Please enter the Digital Scale Number.</span>
+                        </mat-error>
+                        <mat-card-footer>
+                        <button mat-raised-button color="accent" [disabled]="!regiForm.valid" [routerLinkActive]="'active'" >Submit</button>
+                        </mat-card-footer>
+
+        </form>
+    </mat-card-content>
+   </div>
+</mat-card>

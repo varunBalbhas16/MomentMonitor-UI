@@ -1,0 +1,110 @@
+<mat-card>
+  <div class="sub-container-collection">
+    <mat-card-title>COLLECTION</mat-card-title>
+    <mat-card-subtitle>
+      <mat-button-toggle-group multiple (change)="toggleChange($event)">
+        <mat-button-toggle value="School">School</mat-button-toggle>
+        <mat-button-toggle value="Retailer">Retailer</mat-button-toggle>
+      </mat-button-toggle-group>
+    </mat-card-subtitle>
+
+    <div class="example-container" *ngIf="selectedValue == 'Retailer'">
+      <mat-card-title><h5>RETAILER MODEL</h5></mat-card-title>
+      <mat-card-content>
+        <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm)">
+          <mat-form-field>
+            <input matInput placeholder="Search RetailerName" [matAutocomplete]="auto" name="retailer"
+                   formControlName="name">
+          </mat-form-field>
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayprogramFn" (change)="dd(name)">
+            <mat-option *ngFor="let retailernames of retailers " [value]="retailernames">
+              {{ retailernames.name }}
+            </mat-option>
+          </mat-autocomplete>
+          <mat-error>
+            <span
+              *ngIf="!regiForm.get('name').valid && regiForm.get('name').touched">Please enter Retailername !!!</span>
+          </mat-error>
+          <mat-form-field>
+            <mat-label>Program Name</mat-label>
+            <mat-select formControlName="programId">
+              <mat-option *ngFor="let getallprograms of allprogram " [value]="getallprograms.programId">
+                {{getallprograms.programName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-error>
+            <span *ngIf="!regiForm.get('programId').valid && regiForm.get('programId').touched">Please enter Programname !!!</span>
+          </mat-error>
+          <mat-form-field>
+            <input matInput placeholder="Number Of Bags" formControlName="noOfBags" type="number">
+          </mat-form-field>
+          <mat-error>
+            <span *ngIf="!regiForm.get('noOfBags').valid && regiForm.get('noOfBags').touched">Please enter Number of bags !!!</span>
+          </mat-error>
+          <mat-form-field>
+            <input matInput placeholder="Total weight" formControlName="collectionTotalWeight" type="number">
+          </mat-form-field>
+          <mat-error>
+            <span *ngIf="!regiForm.get('collectionTotalWeight').valid && regiForm.get('collectionTotalWeight').touched">Please enter Total weight !!!</span>
+          </mat-error>
+          <mat-card-footer>
+            <button mat-raised-button color="accent" [disabled]="regiForm.invalid">Start Collection</button>
+          </mat-card-footer>
+        </form>
+      </mat-card-content>
+    </div>
+
+    <div class="sub-container-schoolmodal" *ngIf="selectedValue == 'School'">
+      <mat-card-title><h5>SCHOOL MODEL</h5></mat-card-title>
+      <mat-card-content>
+        <form [formGroup]="regiForm1" (ngSubmit)="onFormSubmit(regiForm1)">
+          <mat-form-field>
+            <input matInput placeholder="Search SchoolName" [matAutocomplete]="auto" name="school"
+                   formControlName="name">
+          </mat-form-field>
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayprogramFn">
+            <mat-option *ngFor="let schoolnames of school " [value]="schoolnames ">
+              {{ schoolnames.name }}
+            </mat-option>
+          </mat-autocomplete>
+          <mat-error>
+            <span
+              *ngIf="!regiForm1.get('name').valid && regiForm1.get('name').touched">Please enter Schoolname !!!</span>
+          </mat-error>
+          <mat-form-field>
+            <mat-label>Program Name</mat-label>
+            <mat-select formControlName="programId">
+              <mat-option *ngFor="let getallprograms of allprogram" [value]="getallprograms.programId">
+                {{getallprograms.programName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-error>
+            <span *ngIf="!regiForm1.get('programId').valid && regiForm1.get('programId').touched">Please enter Programname !!!</span>
+          </mat-error>
+          <mat-form-field>
+            <input formControlName="noOfBags" type="number" matInput placeholder="Number Of Bags">
+          </mat-form-field>
+          <mat-error>
+            <span *ngIf="!regiForm1.get('noOfBags').valid && regiForm1.get('noOfBags').touched">Please enter Number of bags !!!</span>
+          </mat-error>
+          <mat-form-field>
+            <input formControlName="collectionTotalWeight" type="number" matInput placeholder="Total Weight">
+          </mat-form-field>
+          <mat-error>
+            <span
+              *ngIf="!regiForm1.get('collectionTotalWeight').valid && regiForm1.get('collectionTotalWeight').touched">Please enter Total weight !!!</span>
+          </mat-error>
+          <mat-card-footer>
+            <button mat-raised-button color="accent" [disabled]="!regiForm1.valid">Start Collection</button>
+          </mat-card-footer>
+        </form>
+      </mat-card-content>
+    </div>
+  </div>
+</mat-card>
+
+
+
+

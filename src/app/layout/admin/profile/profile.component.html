@@ -1,0 +1,55 @@
+<mat-card> 
+  <div class="example-container1">
+   <mat-card-content>             
+        <!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+</button> -->
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Profile</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="First Name" formControlName="firstname" minlength="5" maxlength="20">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Last Name" formControlName="lastname" minlength="5" maxlength="20">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Role" formControlName="role">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Password" formControlName="password">
+      </mat-form-field>
+      <!-- <div>
+        <button mat-button matStepperNext>Next</button>
+      </div> -->
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup" (ngSubmit)="onFormSubmit(secondFormGroup.value)">
+      <ng-template matStepLabel>Change Password</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="New Password" formControlName="newpassword">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Confirm Password" formControlName="confirmpassword">
+      </mat-form-field>
+      <button mat-raised-button color="accent">Submit</button>
+      <!-- <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div> -->
+    </form>
+  </mat-step>
+<!--   <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    You are now done.
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step> -->
+</mat-horizontal-stepper>
+    </mat-card-content>
+   </div>
+</mat-card>

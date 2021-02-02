@@ -1,0 +1,71 @@
+<mat-card-title>ADD USER</mat-card-title>
+<mat-card class="form">
+  <div class="example-container">
+    <mat-card-content>  
+        <form [formGroup]="regiForm" (ngSubmit)="adduserFormSubmit(regiForm.value)">  
+              
+                       <mat-form-field>  
+                            <input formControlName="firstName" matInput placeholder="First Name">  
+                             <mat-error *ngFor="let validation of account_validation_messages.firstName">
+                              <mat-error class="error-message" *ngIf="regiForm.get('firstName').hasError(validation.type) && (regiForm.get('firstName').dirty || regiForm.get('firstName').touched)">{{validation.message}}</mat-error>
+                            </mat-error>
+                        </mat-form-field>  
+                           <mat-form-field>  
+                            <input formControlName="lastName" matInput placeholder="Last Name"> 
+                           <mat-error *ngFor="let validation of account_validation_messages.lastName">
+                             <mat-error class="error-message" *ngIf="regiForm.get('lastName').hasError(validation.type) && (regiForm.get('lastName').dirty || regiForm.get('lastName').touched)">{{validation.message}}</mat-error>
+                         </mat-error> 
+                        </mat-form-field>  
+                                                           
+                        <mat-form-field>  
+                            <input formControlName="email" matInput placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">  
+                               <mat-error *ngFor="let validation of account_validation_messages.email">
+                                 <mat-error class="error-message" *ngIf="regiForm.get('email').hasError(validation.type) && (regiForm.get('email').dirty || regiForm.get('email').touched)">{{validation.message}}</mat-error>
+                             </mat-error>
+                        </mat-form-field> 
+                         <mat-form-field>  
+                            <input formControlName="contact"  type="number" matInput placeholder="Contact Number">
+                              <mat-error *ngFor="let validation of account_validation_messages.contact">
+                                 <mat-error class="error-message" *ngIf="regiForm.get('contact').hasError(validation.type) && (regiForm.get('contact').dirty || regiForm.get('contact').touched)">{{validation.message}}</mat-error>
+                             </mat-error>  
+                        </mat-form-field>
+
+                        <mat-form-field>
+                          <mat-select formControlName="roleName" placeholder="Select Role" [(value)]="selected">
+                             <!--<mat-option value="ticket admin">Ticket Admin</mat-option>-->
+                             <mat-option value="centre head">Centre Head</mat-option>
+                             <mat-option value="department head">Department Head</mat-option>
+                             <mat-option value="dpa">DPM - District Program Manager</mat-option>
+                             <!--<mat-option value="driver">Driver</mat-option>-->
+							 <mat-option value="dfe">DFE - District Fleet Executive</mat-option>
+							 <mat-option value="sfm">SFM - State Fleet Manager</mat-option>
+							 <mat-option value="spm">SPM - State Program Manager</mat-option>
+							 <mat-option value="fm">FM - Finance Manager</mat-option>
+							 <mat-option value="hrm">HRM - HR Manager</mat-option>
+							 <mat-option value="crc">CRC - Supervisor</mat-option>							 	
+                          </mat-select>
+
+                          <mat-error>
+                              <span *ngIf="!regiForm.get('roleName').valid && regiForm.get('roleName').touched">Please select any Role !!!</span>
+                          </mat-error>
+                      </mat-form-field>
+                      <mat-form-field *ngIf="regiForm.value.roleName == 'School Admin'">
+                <input matInput placeholder="Search SchoolName" [matAutocomplete]="auto" name="school" formControlName="contributorName" >
+                    
+                        <mat-autocomplete #auto="matAutocomplete" >
+                         <mat-option *ngFor="let schoolnames of school " [value]="schoolnames.name ">
+                           {{ schoolnames.name }}
+                          </mat-option>
+                         </mat-autocomplete>
+                         <mat-error>  
+                          <span *ngIf="!regiForm.get('contributorName').valid && regiForm.get('contributorName').touched">Please enter Schoolname !!!</span>  
+                      </mat-error>
+                </mat-form-field>
+                        <mat-card-footer>                        
+                        <button mat-raised-button color="accent" [disabled]="!regiForm.valid" >Add User</button>
+                        </mat-card-footer> 
+                   
+        </form>  
+    </mat-card-content>
+   </div>
+</mat-card>

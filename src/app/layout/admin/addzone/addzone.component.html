@@ -1,0 +1,37 @@
+
+<mat-card class="form">
+  <div class="example-container">
+    <mat-card-title>ZONE (DISTRICT) INFORMATION</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">
+
+        <mat-form-field>
+          <input formControlName="zone" matInput placeholder="Zone (District) Name">
+          <mat-error *ngFor="let validation of zoneCheck.zone">
+            <mat-error class="error-message"
+                       *ngIf="regiForm.get('zone').hasError(validation.type) && (regiForm.get('zone').dirty || regiForm.get('zone').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="code" matInput placeholder="Zone (District) Code" maxlength="8">
+          <mat-error *ngFor="let validation of zoneCheck.code">
+            <mat-error class="error-message"
+                       *ngIf="regiForm.get('code').hasError(validation.type) && (regiForm.get('code').dirty || regiForm.get('code').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <textarea formControlName="description" matInput placeholder="Description of the Zone" matTextareaAutosize matAutosizeMinRows="2"
+                    matAutosizeMaxRows="5"></textarea>
+        </mat-form-field>
+
+        <mat-card-footer>
+          <button mat-raised-button color="accent" [disabled]="!regiForm.valid">Create</button>
+        </mat-card-footer>
+
+      </form>
+    </mat-card-content>
+  </div>
+</mat-card>
+

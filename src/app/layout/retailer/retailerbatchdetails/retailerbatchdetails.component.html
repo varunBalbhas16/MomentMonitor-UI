@@ -1,0 +1,25 @@
+<mat-card-title>RETAILER BATCH DETAILS</mat-card-title>
+<mat-card> 
+  <div class="example-container">
+  <mat-card-content>                 
+         <form [formGroup]="regiForm">  
+                       <mat-form-field>  
+                            <input formControlName="collectionDate" name="collectionDate" matInput placeholder="Date" [ngModel]="getalldata.collectionDate | date:'dd-MM-yyyy'"[readonly]>  
+                        </mat-form-field> 
+                        <mat-form-field>  
+                            <input formControlName="name" matInput placeholder="Retailer Name"[(ngModel)]="getalldata.name" name="name" [readonly]>  
+                        </mat-form-field>
+                        <mat-form-field>  
+                            <input formControlName="programName" matInput placeholder="Program Name" [(ngModel)]="getalldata.programName" name="programName" [readonly]>  
+                        </mat-form-field>
+                        <mat-form-field>  
+                            <input formControlName="collectionTotalWeight" matInput placeholder="Total Weight" [(ngModel)]="getalldata.collectionTotalWeight" name="collectionTotalWeight" [readonly]>  
+                        </mat-form-field>                
+        </form>
+      <button mat-button class="add"  [routerLink]="['/retailer/listmapdepartments']" class="add" matTooltip="back">Cancel</button>
+    </mat-card-content>
+   </div>
+</mat-card>
+
+
+

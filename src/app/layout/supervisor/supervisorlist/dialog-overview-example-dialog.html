@@ -1,0 +1,13 @@
+<div mat-dialog-content>
+  <p><b>Total Weight Before Sorting :</b> {{showsupervisordata.totalWeight}} Kgs.</p>
+  <p><b>After Sorting</b></p>
+     <!--<p>Total Weight: {{showsupervisordata.totalWeight}} </p> -->
+     <p>Total Recycled: {{showsupervisordata.totalReusable}} Kgs.</p>
+     <p>Total Waste: {{showsupervisordata.totalWaste}} Kgs.</p>
+</div>
+<div mat-dialog-actions>
+<!--   <button mat-button  color="accent" cdkFocusInitial>Ok</button>
+ -->
+ <button mat-button  (click)="closebatch()" color="accent">Close</button>
+  <button mat-button  (click)="onNoClick()" color="accent">Cancel</button>
+</div>

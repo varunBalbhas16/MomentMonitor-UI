@@ -1,0 +1,17 @@
+<mat-card-title>SUPERVISOR BATCH DETAILS</mat-card-title>
+<mat-card>
+  <div class="example-container">
+  <mat-card-content>       
+        <form>
+        <P><b>Batch:</b> {{getalldata.batchNumber}}</P>
+        <P><b>Contributor Name:</b> {{getalldata.name}}</P>
+        <P><b>Type:</b> {{getalldata.type}}</P>
+        <P><b>Status:</b> {{getalldata.statusName}}</P>
+        <P><b>Total Weight:</b> {{getalldata.totalWeight}}</P>
+        </form>
+        <mat-card-footer>
+        <button mat-button class="add"  [routerLink]="['/supervisor/supervisorlist']"  matTooltip="Back">Back</button> 
+        </mat-card-footer>
+    </mat-card-content>
+   </div>
+</mat-card>

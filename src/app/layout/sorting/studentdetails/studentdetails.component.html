@@ -1,0 +1,103 @@
+<mat-card class="form" *ngIf="sortprocess.type === 'school'">
+  <div class="example-container">
+  <mat-card-title>STUDENT DETAILS FORM</mat-card-title>
+   <form [formGroup]="regiForm1" (ngSubmit)="onstudentFormSubmit(regiForm1)">
+                      <!--  <mat-form-field>
+                            <input formControlName="contributionid" matInput placeholder="Student Contribution Id" type="number" [(ngModel)]="studentdetails.batchnumber" name="batchnumber" readonly="">
+                        </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!regiForm1.get('contributionid').valid && regiForm1.get('contributionid').touched">Please enter Student Contibution Id!!!</span>
+                        </mat-error> -->
+                          <mat-form-field>
+                            <input formControlName="SchoolName" matInput placeholder="School Name" [(ngModel)]="sortprocess.name" name="name" readonly="">
+                        </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!regiForm1.get('SchoolName').valid && regiForm1.get('SchoolName').touched">Please enter SchoolName !!!</span>
+                        </mat-error>
+                       <mat-form-field>
+                            <input formControlName="StudentName" matInput placeholder="Student Name" [matAutocomplete]="auto" name="studentname" >
+                            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayprogramFn" >
+                                  <mat-option *ngFor="let studentname of students " [value]="studentname">
+                                    {{ studentname.studentName }} ({{studentname.grade}})
+                                  </mat-option>
+                            </mat-autocomplete>
+                       </mat-form-field>
+                       <mat-error>
+                            <span *ngIf="!regiForm1.get('StudentName').valid && regiForm1.get('StudentName').touched">Please enter Student Name!!!</span>
+                       </mat-error>
+
+                       <mat-form-field>
+                         <input formControlName="grade" matInput placeholder="Grade"  [(ngModel)]="studentdetails.grade" name="grade" readonly="">
+                       </mat-form-field>
+                       <mat-error>
+                         <span *ngIf="!regiForm1.get('grade').valid && regiForm1.get('grade').touched">Please enter Grade!!!</span>
+                       </mat-error>
+
+                        <mat-form-field>
+                            <!--<input formControlName="ClassLeader" matInput placeholder="Class Leader"  [(ngModel)]="studentdetails.studentClassLeader" name="classLeader" readonly="">-->
+                          <input formControlName="ClassLeader" matInput placeholder="House"  [(ngModel)]="studentdetails.house" name="classLeader" readonly="">
+                        </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!regiForm1.get('ClassLeader').valid && regiForm1.get('ClassLeader').touched">Please enter Class Leader !!!</span>
+                        </mat-error>
+
+                        <!--
+                        <mat-form-field>
+                            <input formControlName="RegisterNumber" type="number" matInput placeholder="Roll Number"  [(ngModel)]="studentdetails.rollNumber" name="rollNumber" readonly="">
+                        </mat-form-field>
+                        <mat-error>
+                            <span *ngIf="!regiForm1.get('RegisterNumber').valid && regiForm1.get('RegisterNumber').touched">Please enter Register Number !!!</span>
+                        </mat-error>
+                        -->
+                        <mat-form-field>
+                            <input  formControlName="bagWeight" type="text" matInput placeholder="Total Weight in Kgs." [(ngModel)]="digitalScaleWeight" >
+                              <mat-error>
+                            <span *ngIf="!regiForm1.get('bagWeight').valid">Please enter Total bagWeight !!!</span>
+                        </mat-error>
+                        </mat-form-field>
+
+                        <mat-card-footer>
+                          <!--  -->
+                          <button mat-raised-button color="accent" (click)="getWeight();  $event.preventDefault()" >Get Weight</button>
+                          <button mat-raised-button color="accent" [disabled]="!regiForm1.valid" >Continue</button>
+                        </mat-card-footer>
+
+        </form>
+   </div>
+</mat-card>
+
+<mat-card class="forms" *ngIf="sortprocess.type === 'retailer'">
+  <div class="example-container">
+  <mat-card-title>RETAILER DETAILS FORM</mat-card-title>
+   <mat-card-content>
+        <form [formGroup]="regiForm2" (ngSubmit)="onretailerFormSubmit(regiForm2)">
+
+                       <mat-form-field>
+                            <input formControlName="RetailerName" matInput placeholder="Retailer Name"  [(ngModel)]="sortprocess.name" name="rollNumber" readonly="">
+                             <mat-error>
+                            <span *ngIf="!regiForm2.get('RetailerName').valid && regiForm2.get('RetailerName').touched">Please enter Retailer Name !!!</span>
+                        </mat-error>
+                        </mat-form-field>
+                          <mat-form-field>
+                            <input formControlName="boxNumber" type="number" matInput placeholder="Box Number" >
+                             <mat-error>
+                            <span *ngIf="!regiForm2.get('boxNumber').valid && regiForm2.get('boxNumber').touched">Please enter Box Number !!!</span>
+                        </mat-error>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input formControlName="boxWeight" type="number" matInput placeholder="total box weight" >
+                             <mat-error>
+                            <span *ngIf="!regiForm2.get('boxWeight').valid && regiForm2.get('boxWeight').touched">Please enter total box weight !!!</span>
+                        </mat-error>
+                        </mat-form-field>
+
+                        <mat-card-footer>
+                        <button mat-raised-button color="accent" [disabled]="!regiForm2.valid"  >Continue</button>
+                        </mat-card-footer>
+
+        </form>
+    </mat-card-content>
+   </div>
+</mat-card>
+
+

@@ -1,0 +1,30 @@
+/*.example-container {
+  display: flex;
+  flex-direction: column;
+}
+.example-container > * {
+  width: 100%;
+}*/
+mat-form-field
+{
+	width:100%;
+}
+/*button.confirm.mat-button
+{
+	background-color: #69c34a!important;
+	font-family:Roboto,"Helvetica Neue",sans-serif;
+	color:#fff;
+	margin-left: 8px;
+	margin: 15px !important;
+}*/
+button.mat-raised-button.mat-accent
+{
+	font-family:Roboto,"Helvetica Neue",sans-serif;
+	color:#0a0606e8!important;
+	margin-left: 8px;
+	margin: 15px !important;
+}
+mat-card-title
+{
+color:#224f88;
+}

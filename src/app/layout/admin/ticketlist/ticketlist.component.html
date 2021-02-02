@@ -1,0 +1,51 @@
+<mat-card-title>TICKET LIST</mat-card-title>
+<mat-card>
+<button mat-button class="add"  [routerLink]="['/admin/raiseticket']"><mat-icon>add_circle</mat-icon>Raise A Ticket</button>
+  <br>
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter by Ticket or Status or DPM or Centre column value">
+  </mat-form-field>
+
+<div class="example">
+  <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="ticket">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>TICKET</th>
+      <td mat-cell *matCellDef="let element"> {{element.ticket}} </td>
+    </ng-container>
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>STATUS</th>
+      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+    <ng-container matColumnDef="dpm">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>DPM</th>
+      <td mat-cell *matCellDef="let element"> {{element.dpm}} </td>
+    </ng-container>
+
+     <ng-container matColumnDef="centreName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>CENTRE</th>
+      <td mat-cell *matCellDef="let element"> {{element.centreName}} </td>
+    </ng-container>
+	
+	<ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>DESCRIPTION</th>
+      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+	<!--
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ACTION</th>
+      <td mat-cell *matCellDef="let element">
+        <!-- <mat-icon class="print1">print</mat-icon> -->
+		<!--
+       <mat-icon class="edit" [routerLink]="['/admin/editicket',element.ticket]" matTooltip="Update Ticket ">launch</mat-icon>
+       <mat-icon class="delete" (click)="deleteUser(element.ticket,element)" matTooltip="Delete Ticket">delete_outline</mat-icon>
+      </td>
+    </ng-container>
+	-->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[25, 50, 75]" showFirstLastButtons></mat-paginator>
+</div>
+</mat-card>
+
+

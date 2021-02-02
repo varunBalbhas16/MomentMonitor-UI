@@ -1,0 +1,44 @@
+<mat-card-title>ADD PROGRAM</mat-card-title>
+<mat-card class="form">
+  <div class="example-container">
+  <mat-card-content>  
+        <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm)">  
+                         <mat-form-field>  
+                            <input formControlName="programName" matInput placeholder="Name">  
+                             <mat-error *ngFor="let validation of account_validation_messages.programName">
+                              <mat-error class="error-message" *ngIf="regiForm.get('programName').hasError(validation.type) && (regiForm.get('programName').dirty || regiForm.get('programName').touched)">{{validation.message}}</mat-error>
+                            </mat-error>
+                        </mat-form-field>                                              
+                        <mat-form-field>  
+                            <input formControlName="purpose" matInput placeholder="Purpose">
+                            <mat-error *ngFor="let validation of account_validation_messages.purpose">
+                            <mat-error class="error-message" *ngIf="regiForm.get('purpose').hasError(validation.type) && (regiForm.get('purpose').dirty || regiForm.get('purpose').touched)">{{validation.message}}</mat-error>
+                            </mat-error>  
+                        </mat-form-field> 
+                        <mat-form-field>  
+                            <input formControlName="startDate" class="start" matInput [matDatepicker]="picker" placeholder="Start Date" (focus)="picker.open()" [min]="today">  
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>  
+                            <mat-datepicker touchUi="true" #picker></mat-datepicker>
+                             <mat-error *ngFor="let validation of account_validation_messages.startDate">
+                            <mat-error class="error-message" *ngIf="regiForm.get('startDate').hasError(validation.type) && (regiForm.get('startDate').dirty || regiForm.get('startDate').touched)">{{validation.message}}</mat-error>
+                            </mat-error>  
+                        </mat-form-field>  
+                        <mat-form-field>  
+                            <input formControlName="endDate" class="start" matInput [matDatepicker]="picker1" placeholder="End Date" [min]="regiForm.value.startDate"  (focus)="picker1.open()" (blur)="enddate(regiForm)">  
+                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>  
+                            <mat-datepicker touchUi="true" #picker1></mat-datepicker>
+                            <mat-error *ngFor="let validation of account_validation_messages.endDate">
+                            <mat-error class="error-message" *ngIf="regiForm.get('endDate').hasError(validation.type) && (regiForm.get('endDate').dirty || regiForm.get('endDate').touched)">{{validation.message}}</mat-error>
+                            </mat-error>    
+                        </mat-form-field>     
+                        <mat-card-footer>                        
+                        <button mat-raised-button color="accent" [disabled]="!regiForm.valid" >Add Program</button>
+                        </mat-card-footer> 
+                   
+        </form>  
+    </mat-card-content>
+   </div>
+</mat-card>
+
+
+

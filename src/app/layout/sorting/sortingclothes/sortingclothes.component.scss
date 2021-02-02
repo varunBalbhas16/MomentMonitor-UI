@@ -1,0 +1,151 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+.example-container > * {
+  width: 100%;
+}
+button.confirm.mat-button
+{
+	background-color: #69c34a!important;
+	font-family:Roboto,"Helvetica Neue",sans-serif;
+	color:#fff;
+	margin-left: 8px;
+	margin: 15px !important;
+}
+mat-card-title
+{
+color:#224f88;
+padding:7px;
+}
+button.mat-raised-button.mat-accent
+{
+  font-family:Roboto,"Helvetica Neue",sans-serif;
+  color:#0a0606e8!important;
+  margin-left: 8px;
+  margin: 15px !important;
+}
+mat-card.tableshow.mat-card
+{
+  margin-top: 16px;
+  font-size: 16px;
+}
+mat-icon.delete
+{
+  color: #bf1111f0 !important;
+}
+th
+{
+  color: #228876 !important;
+}
+table,th,tr,td
+{
+  border: 2px solid #ce507a;
+  border-collapse: collapse;
+  padding:5px !important;
+  width: 50%;
+  text-align:center;
+}
+img.image
+{
+  width: 50px !important;
+}
+/*.example-header-image1 {
+  background-image: url('/assets/images/icons8-clothes-30.png');
+  background-size: cover;
+}
+.example-header-image2 {
+  background-image: url('/assets/images/icons8-denim-shorts-48.png');
+  background-size: cover;
+}
+.example-header-image3 {
+  background-image: url('/assets/images/icons8-mens-pajama-40.png');
+  background-size: cover;
+}
+.example-header-image4 {
+  background-image: url('/assets/images/icons8-shorts-40.png');
+  background-size: cover;
+}
+.example-header-image5 {
+  background-image: url('/assets/images/icons8-jeans-40.png');
+  background-size: cover;
+}
+.example-header-image6 {
+  background-image: url('/assets/images/icons8-shirt-40.png');
+  background-size: cover;
+}
+.example-header-image11 {
+  background-image: url('/assets/images/icons8-t-shirt-30.png');
+  background-size: cover;
+}
+.example-header-image12 {
+  background-image: url('/assets/images/icons8-panties-30.png');
+  background-size: cover;
+}
+.example-header-image13 {
+  background-image: url('/assets/images/icons8-little-black-dress-30.png');
+  background-size: cover;
+}
+.example-header-image14 {
+  background-image: url('/assets/images/icons8-jeans-jacket-30.png');
+  background-size: cover;
+}
+.example-header-image15 {
+  background-image: url('/assets/images/icons8-womens-pants-48.png');
+  background-size: cover;
+}
+.example-header-image16 {
+  background-image: url('/assets/images/icons8-skirt-40.png');
+  background-size: cover;
+}
+.example-header-image21 {
+  background-image: url('/assets/images/icons8-clothes-48.png');
+  background-size: cover;
+}
+.example-header-image22 {
+  background-image: url('/assets/images/icons8-nappy-30.png');
+  background-size: cover;
+}
+.example-header-image23 {
+  background-image: url('/assets/images/icons8-romper-40.png');
+  background-size: cover;
+}
+.example-header-image24 {
+  background-image: url('/assets/images/icons8-romper-48.png');
+  background-size: cover;
+}
+.example-header-image25 {
+  background-image: url('/assets/images/icons8-wedding-dress-40.png');
+  background-size: cover;
+}
+.example-header-image26 {
+  background-image: url('/assets/images/icons8-shirt-30.png');
+  background-size: cover;
+}
+.example-header-image31 {
+  background-image: url('/assets/images/icons8-trash-40.png');
+  background-size: cover;
+}*/
+.mat-card-avatar {
+    height: 70px;
+    width: 70px;
+    border-radius: 0px;
+    }
+mat-card-title.collection
+{
+	color:#228876 !important;
+}
+.cursor{
+   cursor: pointer;
+}
+.mat-button-toggle-group-appearance-standard, .mat-button-toggle-standalone.mat-button-toggle-appearance-standard {
+    border-radius: 8px;
+    /*padding: 8px;*/
+}
+.mat-button-toggle-group-appearance-standard, .mat-button-toggle-standalone.mat-button-toggle-appearance-standard {
+    border: solid 2px #CDDC39;
+}
+.mat-button-toggle-checked {
+    background-color: #CDDC39;
+    color: rgba(0,0,0,.54);
+}

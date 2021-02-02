@@ -1,0 +1,41 @@
+
+<mat-card class="form">
+  <div class="example-container">
+    <mat-card-title>ADD DPM TO CENTRE</mat-card-title>
+    <br/>
+    <mat-card-content>
+      <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">
+
+        <mat-form-field>
+          <input formControlName="dpmNameFromList" matInput placeholder="DPM Name" [matAutocomplete]="auto" name="dpmName">
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayDpms" >
+            <mat-option *ngFor="let dpmuser of dpms" [value]="dpmuser">
+              {{ dpmuser.firstName }} {{ dpmuser.lastName }}
+            </mat-option>
+          </mat-autocomplete>
+          <!--
+          <mat-error *ngFor="let validation of deptCheck.departmentName">
+            <mat-error class="error-message"
+                       *ngIf="regiForm.get('departmentName').hasError(validation.type) && (regiForm.get('departmentName').dirty || regiForm.get('departmentName').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+          -->
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="dpmContact" matInput placeholder="DPM Contact" readonly name="dpmContact"  [(ngModel)]="dpmContact">
+        </mat-form-field>
+
+        <label>
+          <input hidden formControlName="dpmId" [(ngModel)]="dpmId">
+          <input hidden formControlName="centreId" [(ngModel)]="centreId">
+          <input hidden formControlName="userId" [(ngModel)]="userId">
+        </label>
+        <mat-card-footer>
+          <button mat-raised-button color="accent" [disabled]="!regiForm.valid">ADD DPM</button>
+        </mat-card-footer>
+
+      </form>
+    </mat-card-content>
+  </div>
+</mat-card>
+

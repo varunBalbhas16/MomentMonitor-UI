@@ -1,0 +1,89 @@
+/*.example-container {
+  display: flex;
+  flex-direction: column;
+}
+.example-container > * {
+  width: 100%;
+}
+.sub-container-schoolmodal
+{
+  display: flex;
+  flex-direction: column; 
+}
+.sub-container-schoolmodal > * {
+  width: 100%;
+}*/
+mat-form-field
+{
+  width:100%;
+}
+/*button.confirm.mat-button
+{
+  background-color: #69c34a!important;
+  font-family:Roboto,"Helvetica Neue",sans-serif;
+  color:#fff;
+}
+button.print.mat-button
+{
+  background-color: #3cadab!important;
+  margin-left: 4px;
+  font-family:Roboto,"Helvetica Neue",sans-serif;
+  color:white;
+}
+button.collection.mat-button
+{
+  background-color: #4a6bc3!important;
+  font-family:Roboto,"Helvetica Neue",sans-serif;
+  color:#fff;
+}*/
+button.mat-raised-button.mat-accent
+{
+  font-family:Roboto,"Helvetica Neue",sans-serif;
+  color:#0a0606e8!important;
+  margin-left: 8px;
+  margin: 15px !important;
+}
+mat-card-title
+{
+color:#224f88;
+}
+mat-card-footer.mat-card-footer
+{
+margin-left: 0px;
+margin: 2px !important;
+}
+div.sub-container-schoolmodal
+{
+margin-top: 20px !important;
+}
+div.sub-container-schoolmodal mat-card
+{
+margin-top: 15px !important;
+}
+mat-card.mat-card
+{
+margin-top: 28px;
+}
+.sub-container-collection
+{
+  display: flex;
+  flex-direction: column; 
+}
+.sub-container-collection > * {
+  width: 100%;
+}
+mat-card-subtitle.mat-card-subtitle
+{
+  margin-top: 12px;
+}
+.mat-button-toggle-group-appearance-standard, .mat-button-toggle-standalone.mat-button-toggle-appearance-standard {
+    border-radius: 8px;
+    /*padding: 8px;*/
+}
+.mat-button-toggle-group-appearance-standard, .mat-button-toggle-standalone.mat-button-toggle-appearance-standard {
+    border: solid 2px #CDDC39;
+}
+.mat-button-toggle-checked {
+    background-color: #CDDC39;
+    color: rgba(0,0,0,.54);
+}

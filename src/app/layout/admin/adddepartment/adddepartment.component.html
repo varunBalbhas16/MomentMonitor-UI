@@ -1,0 +1,29 @@
+
+<mat-card class="form">
+  <div class="example-container">
+    <mat-card-title>DEPARTMENT MASTER INFORMATION</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">
+
+        <mat-form-field>
+          <input formControlName="name" matInput placeholder="Department Name">
+          <mat-error *ngFor="let validation of deptCheck.name">
+            <mat-error class="error-message"
+                       *ngIf="regiForm.get('name').hasError(validation.type) && (regiForm.get('name').dirty || regiForm.get('name').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <textarea formControlName="description" matInput placeholder="Description of the Department" matTextareaAutosize matAutosizeMinRows="2"
+                    matAutosizeMaxRows="5"></textarea>
+        </mat-form-field>
+
+        <mat-card-footer>
+          <button mat-raised-button color="accent" [disabled]="!regiForm.valid">Create</button>
+        </mat-card-footer>
+
+      </form>
+    </mat-card-content>
+  </div>
+</mat-card>
+
